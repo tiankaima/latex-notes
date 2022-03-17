@@ -1,0 +1,3 @@
+[submodule "ustcthesis"]
+path = ustcthesis
+url = git@github.com:ustctug/ustcthesis.git
