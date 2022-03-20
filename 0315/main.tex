@@ -26,15 +26,15 @@
 \date{\today}
 
 \begin{document}
-\maketitle
 \begin{multicols}{2}
+  \maketitle
   \section{实验背景}
   重力加速度，也称自由落体加速度，表示物体受重力影响产生的加速度。20世纪70年代初，国际上建立了国际标准重力网（IGSN）
   \endnote{abbr. for International Gravity Standardization Network}。
   IGSN的平均精度优于$10^{-7}m/s^2$；近年来，也出现了一些更精确测量的办法
   \endnote{Zong, B.C., Nie, C.H., 2013. Measuring the Gravitational Acceleration by Hydrostatics. Applied Mechanics and Materials 307, 271–274.. doi:10.4028/www.scientific.net/amm.307.271}。
   精确地测量$g$的值，对军工、卫星等有着重要的意义。
-  \section{实验目的}
+  \section[实验目的]{实验目的\endnote{摘自实验要求：重力加速度的测量.pdf}}
   在给定器材和对重力加速度$g$的测量精度要求（$< 10^{-2}$）下，根据单摆公式，进行简单的实验设计和实验基本方法的训练，学会实验器材的使用、测量方法和应用误差均分原理；分析误差的来源，提出修正和估算的方法。
   \section{实验器材}
   游标卡尺、米尺、电子秒表、支架、细线、小刚球、摆幅标尺
@@ -51,13 +51,13 @@
     \frac {d^2 \theta}{dt^2} = -\frac g l \sin\theta \label{XX}
   \end{equation}
 
-  将右侧$\sin\theta$在$\theta = 0$按麦克劳林展开：
+  将右侧$\sin\theta$在$\theta = 0$按Maclaurin展开：
   \begin{equation}
     \frac {d^2 \theta}{dt^2} = -\frac g l (\theta - \frac {\theta^3} 6 +\cdots)
   \end{equation}
 
   考虑到$\theta - \sin \theta<\frac {\theta^3} 6$，在$\theta < 10 ^{\circ}$时，$\Delta = (\theta - \sin\theta)/\theta < 0.005$，符合精度要求。
-  因此将\eqref{XX}中的$\sin\theta$替换为$\theta$，近似为二阶偏微分方程，代入初值条件：
+  因此将\eqref{XX}中的$\sin\theta$替换为$\theta$，近似为二阶线性微分方程，代入初值条件：
   $$\left\{
     \begin{aligned}
       \frac {d\theta} {dt} \mid _{t = 0} & = 0        \\
@@ -77,81 +77,132 @@
     g = l \cdot (\frac {2\pi} T)^2 \label{XY}
   \end{equation}
   \section{实验方法}
-  首先用游标卡尺测量小球的直径，尺寸约为$2cm$，误差$\Delta r /r\approx 0.5 \times 10^{-3}$在允许范围内。
+  首先用游标卡尺测量小球的直径$d$，尺寸约为$2cm$，估算误差$\Delta d /d\approx 0.5 \times 10^{-3}$在允许范围内。
 
-  接着用米尺测量从单摆的顶端开始，到小球的顶端的距离
-  \endnote{为准确获取模型中的摆长}，尺寸约在$60cm$，误差$\Delta l /l \approx 1.2 \times 10^{-4}$在允许范围内。
+  接着测量摆线长度：用米尺测量从单摆的顶端开始，到小球的顶端的距离，尺寸约在$60cm$，估算误差$\Delta l^{\prime} /l^{\prime} \approx 1.2 \times 10^{-4}$在允许范围内。
 
-  这里值得注意的是，如果只测量一个周期的时间（估计为$1s$），误差会达到$\Delta t/t\approx 0.2$，远远超过实验允许的误差$10^{-3}$。因此，选择测量100个周期所需时间，误差约为$\Delta t/t\approx 2\times 10^{-3}$，在允许范围内。与之相比，秒表自身的误差可以忽略不记\endnote{约为 $10^{-6}$量级}。
+  注意这里测量的摆线长度并不等同于摆长，后续计算的摆长$l=l^{\prime} + d/2$
+
+  最后是测量摆动周期$T$。这里值得注意的是，如果只测量一个周期的时间（估计为$1s$），误差会达到$\Delta t/t\approx 0.2$，远远超过实验允许的误差$10^{-3}$。因此，选择测量100个周期所需时间，误差约为$\Delta t/t\approx 2\times 10^{-3}$，在允许范围内。与之相比，秒表测量时的误差可以忽略不记\endnote{约为 $10^{-6}$量级}。
 
   总体的系统误差估计：
   $$\lvert\Delta g/g\rvert \leq \lvert\Delta l/l\rvert + \lvert2\times \Delta t/t\rvert\\
     \approx 2\times 10^{-3}$$
-  \section[实验数据]{实验数据\endnote{实际测量时，出于时间上的考虑，前两次实验时并未测量100个周期，而是选用了55个周期，在保证精度的前提下完成了实验。}$^{,}$\endnote{实验过程中，我们认为：在未调节摆长的前提下，多次测量摆长的操作是无意义的；甚至会降低实验结果的准确性。因为这并不能提供令人满意的误差分布。}}
+
+  \section[实验数据]{实验数据\endnote{实际测量时，出于时间上的考虑，前两次实验时并未测量100个周期，而是选用了55个周期，在保证精度的前提下完成了实验。}}
   \begin{tabular}{|c|c|c|c|}
-    \hline \textbf{摆长 $l$} & \textbf{角度 $\theta$} & \textbf{测量次数} & \textbf{测量结果$t$} \\
-    \hline $60.000cm$        & $10^{\circ}$           & $55$              & $85.85$              \\
-    \hline $60.000cm$        & $5^{\circ}$            & $55$              & $85.81$              \\
-    \hline $60.000cm$        & $15^{\circ}$           & $100$             & $154.94$             \\
-    \hline $49.878cm$        & $10^{\circ}$           & $100$             & $141.93$             \\
+    % 摆长                & 角度              & 测量次数     & 测量结果      \\
+    \hline\textbf{$l$} & \textbf{$\theta$} & \textbf{$n$} & \textbf{$nT$} \\
+    \hline $60.273cm$  & $10^{\circ}$      & $55$         & $85.85$       \\
+    \hline $60.172cm$  & $5^{\circ}$       & $55$         & $85.81$       \\
+    \hline $60.133cm$  & $15^{\circ}$      & $100$        & $154.94$      \\
+    \hline $49.878cm$  & $10^{\circ}$      & $100$        & $141.93$      \\
     \hline
   \end{tabular}
+
+  \bigskip
+  签字的实验数据（复印件）在附件中。
   \section{数据处理}
   \subsection{不确定度分析}
-  我们认为在本实验中多次测量同一变量的样本偏小，因而偏差更大。因而并没有进行重复实验。
 
-  实验中的系统误差主要来源于：
+  实验中的系统误差主要来源于\endnote{按照\eqref{XY} $T$应该与$l$相关，因此只计算前三次的数据。}：
   \begin{itemize}
-    \item 测量$l$产生的误差
-    \item 测量$t$产生的误差，一篇论文详细地测定了实验者接受到视觉反馈到秒表停止计时的误差分布\endnote{Faux, D.A., Godolphin, J., 2019. Manual timing in physics experiments: Error and uncertainty. American Journal of Physics 87, 110–115.. doi:10.1119/1.5085437}；我们采纳其中的分布$N(0.11,0.072)$，并考虑系统误差
+    \item 测量$l$产生的误差：
+
+          $l$的标准差：
+          $$
+            \sigma_l = \sqrt{\frac {\sum _{i=1}^{n} (l_i - \bar l)^2} {n-1} }= 0.072 cm
+          $$
+
+          展伸不确定度：（$\Delta_b$ 是米尺的精度）
+          $$
+            \begin{aligned}
+              U_l & =\sqrt{(t_{0.68} \frac {\sigma _l} {\sqrt{n}})^2 + (k_b \frac {\Delta_b} {C})^2} = 0.05 cm, \\
+              P   & =0.68
+            \end{aligned}
+          $$
+    \item 测量$T$产生的误差
+
+          $T$的标准差：
+          $$
+            \sigma_T = \sqrt{\frac {\sum _{i=1}^{n} (l_i- \bar l)^2} {n-1}} = 0.006 s
+          $$
+
+          展伸不确定度：（$\Delta_T$ 是秒表的精度）
+          $$
+            \begin{aligned}
+              U_T & = \sqrt{(t_{0.68} \frac {\sigma _T} {\sqrt{n}})^2 + (k_b \frac {\Delta_T} {C})^2} = 0.013 s, \\
+              P   & =0.68
+            \end{aligned}
+          $$
+
+          由以上内容可以得到$g$的展伸不确定度：
+
+          $$
+            \begin{aligned}
+              \frac {U_g}{\bar g} & = \sqrt {(\frac {U_l} {\bar L}) + 2(\frac{U_T}{\bar T})^2} = 0.0094, \\
+              P                   & =0.68
+            \end{aligned}
+          $$
+
+          其中$U_g/\bar g=0.0094 < 0.01$ 满足实验预期。
   \end{itemize}
   \subsection{数值计算}
   按照\eqref{XY}中给出的公式，计算$g$的值分别为：
-  \begin{equation}
+  $$
     \left\{
     \begin{aligned}
-      g_1 & =9.722\pm 0.03\ m/s^2 \\
-      g_2 & =9.731\pm 0.03\ m/s^2 \\
-      g_3 & =9.867\pm 0.03\ m/s^2 \\
-      g_4 & =9.775\pm 0.03\ m/s^2 \\
+      g_1 & =9.766 m/s^2 \\
+      g_2 & =9.759 m/s^2 \\
+      g_3 & =9.889 m/s^2 \\
+      g_4 & =9.775 m/s^2 \\
     \end{aligned}
-    \notag{}
     \right.
-  \end{equation}
+  $$
 
   前三次测量结果取平均的结果：
-  \begin{equation}
+  $$
     \left\{
     \begin{aligned}
-      \bar T & = \frac 1 3(\frac{85.85}{55}+\frac{85.81}{55}+\frac{154.94}{100})=1.557 \pm 0.001\ s \\
-      \bar l & = 0.600 m \pm  0.001\ m                                                              \\
+      \bar T   & = 1.557 s \\
+      \ \bar l & = 0.602 m
     \end{aligned}
-    \notag
     \right.
-  \end{equation}
+  $$
 
-  按这个结果计算得到\endnote{只计算了前三项的数据}：
-  $$\bar g=\bar l\cdot (\frac {2\pi} {\bar T})^2=9.77\pm 0.03\ m/s^2$$
+  按这个结果计算得到：
+  $$\bar g=\bar l\cdot (\frac {2\pi} {\bar T})^2=9.803m/s^2$$
 
-  或者，可以利用\eqref{XY}进行线性回归分析，对\eqref{XY}两侧取对数：
+  但这个办法并没有利用第四组数据，可以考虑下面的办法：
+
+  利用\eqref{XY}进行线性回归分析，对\eqref{XY}两侧取对数：
   \begin{equation}
-    \ln g = \ln l + 2\cdot(\ln(2\pi) -\ln(T))
+    \ln l - 2\ln T = \ln g - 2\ln(2\pi)
   \end{equation}
 
-  对$\ln l\ -\ \ln T$，拟合得到：
-  \begin{equation}
-    \begin{aligned}
-      ln l= & 1.9871912225569373\cdot \ln T \\
-            & -1.3906943077151763           \\
-    \end{aligned}
-    \notag{}
-  \end{equation}
+  以$\ln l\ -\ \ln T$进行拟合，得到：
+  $$
+    \ln l= 2.022\cdot \ln T -1.403
+  $$
 
-  回归系数$a=1.98\ldots$与公式推导的$2$之间误差符合预期，通过$b=\ln g -2\cdot \ln(2\pi)$推出$g$的值：
-  \begin{equation}
-    g = 9.83\pm 0.03\ m/s^2
-  \end{equation}
-  
+  利用$b=\ln g -2\cdot \ln(2\pi)$推算$\widetilde{g}$的值：
+  $$
+    \widetilde{g} = 9.71m/s^2
+  $$
+
+  由于利用了四个测量值，采纳这个结果作为测量结果。
+
+  \subsection{结论}
+  综合上面的讨论，最终测量的结果为：
+  $$
+    g=\widetilde{g} \pm \bar U_g =9.71 \pm 0.09 m/s^2, P=0.68
+  $$
   \theendnotes
+
+  % \section{改进方案}
+
+  % 单摆法测量重力加速度，受限于公式的近似，测量结果精度一般小于$10^{-4}$，改进空间不大。
+
+  % 可以考虑将测量的周期数加长至$200$次，可以将精度提高到$10^{-2} m /s^2$
 \end{multicols}
 \end{document}
