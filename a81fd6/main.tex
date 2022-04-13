@@ -1,0 +1,182 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX spellcheck = en_US
+
+\documentclass[a4paper]{ltxdoc}
+\usepackage{amsmath}
+\usepackage[UTF8]{ctex}
+\usepackage{unicode-math}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{listings}
+\usepackage[perpage]{footmisc}
+\usepackage{hypdoc}
+\usepackage{geometry}
+\usepackage{endnotes}
+% \usepackage[multiple]{endnotes}
+\usepackage{multicol}
+\usepackage{blindtext}
+\geometry{a4paper, scale=0.85}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\title{实验报告\\声速的测量}
+\author{少年班学院\\马天开 PB21000030（1号）}
+\date{\today}
+
+\begin{document}
+\begin{multicols}{2}
+    \maketitle
+    \section{实验目的}
+    在给定的器材下，进行简单的实验设计和实验基本方法的训练，学会实验器材的使用、测量方法和应用误差均分原理；分析误差的来源，提出修正和估算的方法
+    \section{实验器材}
+    低频信号发生器、测量仪、示波器、黄铜棒、有机玻璃棒、游标卡尺、温度计。
+
+    发生器频率分度：$\Delta f =1Hz$，游标卡尺精度：$\Delta \approx 10^{-3} cm$
+    \section{实验原理}
+    \subsection{声速公式}
+    在理想空气中，声波的传播速度满足:
+    $$
+        v=\sqrt{\dfrac{\gamma R T}{M}}
+    $$
+
+    忽略空气中水蒸气的影响和其他夹杂物的影响，在开式温度$T$下，声速满足：
+    $$
+        v = v_0 \sqrt{T / 273.15}
+    $$
+
+    其中，$v_0$为$0^\circ C$理想空气中的声速，计算得到的值为$331.45 m/s$
+
+    \subsection{测量方法}
+
+    根据波动理论：
+    $$
+        v = \lambda \cdot f
+    $$
+
+    其中$v$为波速，$\lambda$为波长，$f$为频率。声波的频率由声源的电激励信号给出，波长由共振干涉法（驻波假设）和相位比较法（行波假设）来测量。
+
+    共振干涉法：在接受表面，入射波和反射波的振动方向与频率相同而发生相干叠加；声波在发射表面和接受表面之间往返，形成驻波。当接受表面和发射表面之间的距离为半波长$\lambda /2$的整数倍时，出现稳定的驻波共振现象，声压最大。
+
+    相干比较法，发射端和接收端之间存在相位差，可以通过李萨如图形来观察。当$S1$和$S2$之间距离变化半个波长，图形变化$\Delta \varphi = \pi$
+
+    \section{实验方法}
+
+    组装实验仪器。
+
+    首先测量环境温度$T$、和简谐频率$f$：在接收平面和发射平面之间保证一定距离的前提下，调整正弦信号频率，当在某一点电压幅度最大时，记录该频率为匹配点频率$f$。
+
+    共振干涉法（驻波法）测量空气中的波长和声速：保持接收平面和发射平面距离$>5cm$，通过移动鼓轮调整接收平面位置，观察示波器，当示波器上出现振幅最大信号时，记录接收平面的位置$L$，按照一定方向改变接收器的位置，可以发现波形发生周期性的变化，共记录至少$12$个为支点，并用最小二乘法处理数据，并计算不确定度；与由温度计算得到的理论值相比。
+
+    相位干涉法（行波法）测量水中的波长和声速：调整接线方式，并将示波器置于$X-Y$挡位上，保持接收平面和发射平面距离$>5cm$，通过移动鼓轮调整接收平面位置，观察示波器，当示波器上出现斜率为正（或负）的直线时，记录接收平面的位置$L$，用同样的方法共记录至少$8$个为支点，并用最小二乘法处理数据，并计算不确定度；与由温度计算得到的理论值相比。
+
+    测量固体中的声速的大小（时差法）：分别将黄铜棒、有机玻璃棒连接在实验仪器上，调整接线方式，测出时间差$t$；用游标卡尺测量并记录长度$L$
+
+    \section{实验数据}
+
+    共振干涉法（驻波法）数据$L$：（$f = 37121 Hz,T= 23.0^{\circ}C$）
+    $$
+        \begin{aligned}
+             & 29.395,28.934,28.416,28.010, 27.518,27.092, \\&26.635,26.083,25.572,25.625,23.786,22.869,\\&22.377,21.837,21.385\\
+        \end{aligned}
+    $$
+
+    \bigskip
+    相位干涉法（行波法）数据$L$：（$f = 34787 Hz$）
+    $$
+        \begin{aligned}
+             & 8.454,11.156,13.238,15.142, \\&17.404,19.626,21.838,21.130\\
+        \end{aligned}
+    $$
+
+    \bigskip
+    黄铜棒：$t=80\upmu s$，$L=25.766 cm$；有机玻璃棒：$t=154\upmu s$，$L=26.776m$。
+
+    \section{数据分析}
+    \subsection{共振干涉法（驻波法）}
+    注：在分析数据时注意到，数据点$10,11,12$中间存在明显偏差，应该是漏掉了三个波峰，通过调整最小二乘的$n$可以修正这些错误。
+
+    对数据分别编号$n=1,2,3\ldots$，利用最小二乘得到回归方程：
+
+    \smallskip
+    $L = -0.47034581\times n + 29.86871233$
+
+    \smallskip
+
+    通过逐差的方法，对$L$进行不确定度分析：
+    $$
+        U_{AL} = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n-1} (\Delta L_{i} -\bar{\Delta L})^2} = 0.09269 cm
+    $$
+
+    仪器的误差：$U_{BL} =\sqrt 3 \times \Delta = 0.001732cm$
+
+    \smallskip
+    因此$L$的展伸不确定度：$U_{L} = \sqrt{U_{AL}^2 + U_{BL}^2} = 0.09271 cm$
+
+    \smallskip
+    $\Delta f = 1Hz$，不确定度：$U_{f} =1Hz$
+
+    \smallskip
+    因此$U_{v} / v=\sqrt{(\frac {U_{L}} {L})^{2} + (\frac {U_{f}} {f})^{2}} = 0.003616$
+
+    \smallskip
+    得到半波长$\lambda / 2 = 0.470 cm$，计算得到声速$v = 349.1\pm 1.3 m/s,P=0.68$；
+
+    \smallskip
+    对比理论值$v_0 = 345.12 m/s$，相对误差$1.17\%$
+
+    \subsection{相干干涉法（行波法）}
+    用与上文类似的处理方法可以得到：
+
+    $$
+        \begin{aligned}
+             & f = 34787 Hz \pm 1 Hz           \\
+             & \lambda = 4.394 cm \pm 0.001 cm \\
+        \end{aligned}
+    $$
+
+    所以测得水中的声速：$v = 1528.7 m/s \pm 1\times 10^{-5} m/s$
+
+    \subsection{测量固体中的声速的大小（时差法）}
+
+    限于时间原因，并未测量多组数据。
+
+    \smallskip
+    黄铜棒：
+    $$
+        \begin{aligned}
+             & t = 80\ \upmu s \pm 1\ \upmu s \\
+             & L = 25.776 \pm 0.001 cm        \\
+        \end{aligned}
+    $$
+
+    得到黄铜棒中声速为：$v= 3222 m/s \pm 1 m/s$
+
+    \smallskip
+    有机玻璃棒：
+    $$
+        \begin{aligned}
+             & t = 154\ \upmu s \pm 1\ \upmu s \\
+             & L = 26.776 \pm 0.001 cm         \\
+        \end{aligned}
+    $$
+
+    得到黄铜棒中声速为：$v= 1739 m/s \pm 1 m/s$
+
+    \section{思考题}
+    \begin{itemize}
+        \item 定性分析共振法测量时，声压振幅极大值随着距离变长而减小的原因。
+
+              声波的传递有损，振动幅度受能量减小的影响而减小
+        \item 声速测量中驻波法、相位法、时差法有何异同？
+
+              驻波法测量精度更高，耗时也更长，适合精密测量。但缺点在于不直观、不容易判断最大振幅的位置；相位法在示波器上更加直观，更容易辨别最大点，但行波假设并不适用于大多数条件；时差法更加迅速，但精度不高。
+        \item 各种气体中的声速是否相同，为什么？
+
+              呃，不相同，不同种气体之间定压比热容和定容比热容不相同……它们之间的比值也不相同；实际测量时固体中的声速不相同也可以从侧面反映出：声音的传播不仅受介质形态的影响，也受介质本身性质的影响。
+    \end{itemize}
+\end{multicols}
+\end{document}
