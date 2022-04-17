@@ -2,4 +2,9 @@
 *.ent
 *.hd
 *.synctex.gz
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
 .idea/
