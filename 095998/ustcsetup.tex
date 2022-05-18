@@ -25,59 +25,27 @@
   math-font          = xits,  % 可选：stix, xits, libertinus
 }
 
-
-% 加载宏包
-
-% 定理类环境宏包
 \usepackage{amsthm}
-
-% 插图
 \usepackage{graphicx}
-
-% 三线表
 \usepackage{booktabs}
-
-% 跨页表格
 \usepackage{longtable}
-
-% 算法
 \usepackage[ruled,linesnumbered]{algorithm2e}
-
-% SI 量和单位
-% \usepackage{amsmath,amssymb,amsthm}
-% \usepackage{hyperref}
 \usepackage{indentfirst}
-% \usepackage{graphicx}
 \usepackage{zhnumber}
 \usepackage{fancyhdr}
 \usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{float}
 \usepackage{physics}
-% \usepackage{bm}
 \usepackage[scientific-notation=true]{siunitx}
-% \usepackage{siunitx}
-
-% 参考文献使用 BibTeX + natbib 宏包
-% 顺序编码制
-\usepackage[sort]{natbib}
-\bibliographystyle{ustcthesis-numerical}
-
-% 著者-出版年制
-% \usepackage{natbib}
-% \bibliographystyle{ustcthesis-authoryear}
-
-% 本科生参考文献的著录格式
-% \usepackage[sort]{natbib}
-% \bibliographystyle{ustcthesis-bachelor}
 
 % 参考文献使用 BibLaTeX 宏包
-% \usepackage[style=ustcthesis-numeric]{biblatex}
-% \usepackage[bibstyle=ustcthesis-numeric,citestyle=ustcthesis-inline]{biblatex}
+\usepackage[style=ustcthesis-numeric]{biblatex}
+% \usepackage[bibstyle=ustcthesis-numeric,citestyle=ustcthesis-inline,hyperref=true,backend=biber,sorting=none,backref=true]{biblatex}
 % \usepackage[style=ustcthesis-authoryear]{biblatex}
 % \usepackage[style=ustcthesis-bachelor]{biblatex}
 % 声明 BibLaTeX 的数据库
-% \addbibresource{bib/ustc.bib}
+\addbibresource{bib/ustc.bib}
 
 % 配置图片的默认目录
 \graphicspath{{figures/}}

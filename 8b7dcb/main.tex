@@ -1,0 +1,207 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX spellcheck = en_US
+
+\documentclass[a4paper]{ltxdoc}
+\usepackage{amsmath}
+\usepackage[UTF8]{ctex}
+\usepackage{unicode-math}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{listings}
+\usepackage[perpage]{footmisc}
+\usepackage{hypdoc}
+\usepackage{geometry}
+\usepackage{endnotes}
+\usepackage{graphicx}
+% \usepackage[multiple]{endnotes}
+\usepackage{multicol}
+\usepackage{blindtext}
+\geometry{a4paper, scale=0.85}
+\newenvironment{Figure}
+{\par\medskip\noindent\minipage{\linewidth}}
+{\endminipage\par\medskip}
+
+\title{实验报告\\衍射实验}
+\author{少年班学院\\马天开 PB21000030（9号）}
+\date{\today}
+% TODO: 稍微调整文字内容。
+
+\begin{document}
+\begin{multicols}{2}
+    \maketitle
+    \section{实验目的}
+    对光学实验形成初步认识，熟悉基本概念，掌握组装、调整实验仪器的方法。
+
+    观察夫琅禾费衍射现象，研究不同结构衍射屏的光强分布特征，对夫琅禾费衍射图样的条纹进行测量。
+
+    结合理论计算衍射屏的结构参数（单缝的宽度，双缝中心间距，小孔直径）
+    \section{实验器材}
+    光学导轨、电源、\textit{He-Ne}激光器（$\lambda = 632.8 nm$）、衍射元件、\textit{CCD}、显示器。
+    \section{实验原理}
+    当光源和接收屏都离衍射屏足够远的时候，即菲涅耳数$F\triangleq \dfrac{a^2}{L\lambda} \ll 1$时，在接收屏产生的衍射即为夫琅禾费衍射。
+
+    其中$a$是孔径的尺寸，$L$是孔径与观察屏之间的距离，$\lambda$是入射波的波长。
+
+    由标量衍射理论，有基尔霍夫衍射积分公式：
+
+    $$
+        \widetilde{U}(P) = -\dfrac{1}{2} \oiint _{\Sigma} \dfrac{1}{2}(\cos \theta_0 + \cos \theta)\widetilde{U_0}(Q)\dfrac{e^{ikr}}{r} dS
+    $$
+
+    利用上述公式，适当近似之后，可以得到特殊种类的衍射光强分布。
+
+    \subsection{单缝夫琅禾费衍射}
+
+    单缝夫琅禾费衍射的光强分布为：
+
+    $$
+        \left\{
+        \begin{aligned}
+            I(\phi) & = I_0 (\dfrac{\sin u}{u})^2                  \\
+            u       & \triangleq \dfrac {\pi a \sin\phi} {\lambda} \\
+        \end{aligned}
+        \right.
+    $$
+
+    其中 $a$为单缝的宽度，$I_0$为入射光光强，$\phi$为衍射光与光轴的夹角（衍射角）。
+
+    当$\phi = 0$时，光强取最大值$I_0$，对应的衍射条纹为中央大条纹；当$a\sin\phi=k\lambda,k=\pm 1,\pm 2,\pm 3,\ldots$时，$I(\phi)=0$，此时为暗条纹。
+
+    做小角度近似$\sin\phi\approx\phi\approx\tan\phi$，因此有：
+
+    $$
+        \dfrac{k\lambda}{a} = \dfrac{x_k}{L}
+    $$
+
+    其中$x_k$为第$k$条暗条纹与中央亮条纹的距离。
+
+    \subsection{双缝夫琅禾费衍射}
+
+    双缝夫琅禾费衍射的光强分布为：
+
+    $$
+        \left\{
+        \begin{aligned}
+            I(\phi) & = 4I_0 (\dfrac{\sin u}{u})^2 \cos^2 v        \\
+            u       & \triangleq \dfrac {\pi a \sin\phi} {\lambda} \\
+            v       & \triangleq \dfrac {\pi d \sin\phi} {\lambda} \\
+        \end{aligned}
+        \right.
+    $$
+
+    其中$a$为单缝的宽度，$d$为双缝间距，$I_0$为入射光光强，$\phi$为衍射光与光轴的夹角（衍射角）。
+
+    当$\phi = 0$时，光强取最大值$I_0$，对应的衍射条纹为中央大条纹；当$v=n\pi$时，即$d\sin\phi=n\lambda,n=\pm 1,\pm 2,\pm 3\ldots$，此时为双缝干涉的极大值。
+
+    当$\dfrac{n\lambda}{d} = \dfrac{x_n}{L}$，其中$x_n$为第$n$级暗条纹与中央亮条纹的距离。
+
+    若上面两个式子（$d\sin\phi =n\lambda$与$a\sin\phi =k\lambda$）位置相重合，此时第$n$级干涉极大将不会出现，称为缺级。
+
+    \subsection{圆孔夫琅禾费衍射}
+
+    圆孔夫琅禾费衍射的光强分布为：
+
+    $$
+        \left\{
+        \begin{aligned}
+            I(\theta) & = I_0 (\dfrac{2J_1(m)}{m})^2        \\
+            m         & = \dfrac{2\pi R\sin\theta}{\lambda} \\
+        \end{aligned}
+        \right.
+    $$
+
+    其中$R$为圆孔，$J_1(m)$为一阶\textit{Bezier}函数。
+
+    当$m_1=3.83$处，对应角半径为$\theta_1\approx\sin\theta_1=\dfrac{3.83\lambda}{2\pi R}=\dfrac{0.61\lambda}{R}$，即为零级亮斑。
+
+    % TODO: Relative position require noticing.
+    \bigskip
+
+    因此，艾里斑的半角宽度为：
+
+    $$
+        \theta_0 = 1.22 \dfrac{\lambda}{D}
+    $$
+
+    \section{实验方法}
+
+    \begin{itemize}
+        \item 调节导轨及\textit{CCD}：
+
+              依次装好激光器、衰减片、衍射原件支架和\textit{CCD}镜头，并保持它们的中心位置在一条与导轨平行的直线上。
+
+        \item 将衍射元件置于支架上，接通装置中所有电源，调整衍射元件的位置，使光路通过元件待观察部分。调整衰减片相对位置，使得照在\textit{CCD}的光强处在合适水平，去掉\textit{CCD}上的保护盖，待显示屏稳定之后观察现象。
+
+        \item 观察单缝、双缝、小孔衍射光强分布，总结各元件衍射图样的特点
+        \item 观察并总结单缝、双缝、小孔缝宽（或直径）与衍射图样变化之间的关系
+        \item 记录单缝衍射各级暗条纹及中央主极大位置，计算单缝宽$a$，求相对误差
+              % \item 记录双缝衍射各级亮条纹（或暗条纹）位置，计算双缝中心间距$d$（$d=a+b$，为光栅常数），求相对误差
+    \end{itemize}
+\end{multicols}
+\section{实验数据}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline 单缝宽度 & 衍射元件位置读数 & \textit{CCD}位置读数 & \textit{CCD}镜头凸出 & 中心位置 & 左1    & 左2    & 左3    \\
+    \hline 0.2      & 59.00            & 89.21                & 2.00                 & 14.186   & 13.268 & 12.432 & 11.443 \\
+    \hline 0.2      & 59.00            & 89.21                & 2.00                 & 14.165   & 13.278 & 12.437 & 11.463 \\
+    \hline 0.2      & 59.00            & 89.21                & 2.00                 & 14.146   & 13.268 & 12.396 & 11.462 \\
+    \hline 0.1      & 59.00            & 89.21                & 2.00                 & 14.416   & 12.487 & 10.705 & 8.872  \\
+    \hline 0.1      & 59.00            & 89.21                & 2.00                 & 14.350   & 12.498 & 10.709 & 8.878  \\
+    \hline 0.1      & 59.00            & 89.21                & 2.00                 & 14.345   & 12.475 & 10.676 & 8.793  \\
+    \hline 0.05     & 59.00            & 89.21                & 2.00                 & 14.352   & 11.055 & -      & -      \\
+    \hline 0.05     & 59.00            & 89.21                & 2.00                 & 14.269   & 11.080 & -      & -      \\
+    \hline 0.05     & 59.00            & 89.21                & 2.00                 & 14.215   & 11.110 & -      & -      \\\hline
+    \hline 0.2      & 75.61            & 89.21                & 2.00                 & 14.328   & 14.000 & -      & -      \\
+    \hline 0.2      & 75.61            & 89.21                & 2.00                 & 14.365   & 13.395 & -      & -      \\
+    \hline 0.2      & 75.61            & 89.21                & 2.00                 & 14.351   & 13.975 & -      & -      \\
+    \hline 0.1      & 75.61            & 89.21                & 2.00                 & 14.537   & 13.725 & -      & -      \\
+    \hline 0.1      & 75.61            & 89.21                & 2.00                 & 14.523   & 13.520 & -      & -      \\
+    \hline 0.1      & 75.61            & 89.21                & 2.00                 & 14.538   & 13.719 & -      & -      \\
+    \hline 0.05     & 75.61            & 89.21                & 2.00                 & 14.453   & 13.136 & -      & -      \\
+    \hline 0.05     & 75.61            & 89.21                & 2.00                 & 14.475   & 13.125 & -      & -      \\
+    \hline 0.05     & 75.61            & 89.21                & 2.00                 & 14.458   & 13.132 & -      & -      \\\hline
+    \hline 0.2      & 54.82            & 89.21                & 2.00                 & 13.761   & 12.680 & -      & -      \\
+    \hline 0.2      & 54.82            & 89.21                & 2.00                 & 13.750   & 12.897 & -      & -      \\
+    \hline 0.2      & 54.82            & 89.21                & 2.00                 & 13.703   & 12.681 & -      & -      \\
+    \hline 0.1      & 54.82            & 89.21                & 2.00                 & 14.339   & 12.198 & -      & -      \\
+    \hline 0.1      & 54.82            & 89.21                & 2.00                 & 14.338   & 12.212 & -      & -      \\
+    \hline 0.1      & 54.82            & 89.21                & 2.00                 & 14.351   & 12.228 & -      & -      \\
+    \hline 0.05     & 54.82            & 89.21                & 2.00                 & 14.316   & 10.778 & -      & -      \\
+    \hline 0.05     & 54.82            & 89.21                & 2.00                 & 14.461   & 10.770 & -      & -      \\
+    \hline 0.05     & 54.82            & 89.21                & 2.00                 & 14.382   & 10.807 & -      & -      \\\hline
+\end{tabular}
+% \begin{multicols}{2}
+\section{实验结果}
+利用$\dfrac{k\lambda}{a} = \dfrac{x_k -x_0}{L}$，可以计算出（其中大部分数据无法线性拟合）：
+\bigskip
+
+\begin{tabular}{|c|c|c|c|c|}
+    \hline 单缝宽度 & 衍射元件位置读数 & \textit{CCD}位置读数 & $\bar{a} 计算值$ & 相对误差 \\
+    \hline 0.2      & 59.00            & 89.21                & 0.1932           & 3.4\%    \\
+    \hline 0.1      & 59.00            & 89.21                & 0.1023           & 2.3\%    \\
+    \hline 0.05     & 59.00            & 89.21                & 0.04872          & 2.6\%    \\\hline
+
+    \hline 0.2      & 75.61            & 89.21                & 0.1956           & 1.2\%    \\
+    \hline 0.1      & 75.61            & 89.21                & 0.1114           & 1.1\%    \\
+    \hline 0.05     & 75.61            & 89.21                & 0.05061          & 1.2\%    \\\hline
+
+    \hline 0.2      & 54.82            & 89.21                & 0.2103           & 5.2\%    \\
+    \hline 0.1      & 54.82            & 89.21                & 0.0923           & 7.7\%    \\
+    \hline 0.05     & 54.82            & 89.21                & 0.04974          & 0.5\%    \\\hline
+\end{tabular}
+\section{实验分析}
+\subsection{总结}
+本次实验观察了各种元件夫琅禾费衍射图像的观察，以及单缝、双缝的测量，误差主要来源于条纹中心的不确定性，产生了较大偏差。
+\subsection{思考题}
+\begin{itemize}
+    \item 当光通过一个小孔时，在后面的光屏会得到什么样的图案？
+          当小孔孔径较小时，与圆孔夫琅禾费衍射图案类似。当孔径稍微更大时，在边缘处会产生衍射现象。
+    \item 白光照射到狭缝上，衍射条纹有什么特点？
+          为多种波长衍射条纹的叠加图案，除中央大条纹，其他不存在全波长的极大值。
+    \item \textit{LED}射灯照到手机屏幕可观察到特殊的图案，解释其原因。
+          \textit{LED}照射到手机屏幕时，会分别在上下表面分别折射；特别的，在像素点上照射会产生类似圆孔夫琅禾费衍射的图案，多种波长衍射图案叠加在一起，即为图中所示图案。
+\end{itemize}
+% \end{multicols}
+\end{document}
