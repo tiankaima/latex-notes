@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?> 
+<?xml-stylesheet href="main.css" type="text/css"?> 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="399.69855pt" height="28.85272pt" viewBox="-29.61275 -14.42636 399.69855 28.85272 "> 
+<g transform="translate(0, 14.42636 ) scale(1,-1) translate(0,14.42636 )"> 
+   <g stroke="#000" fill="#000">
+ <g stroke-width="0.4">
+ <g stroke="#000">
+ <g stroke="#000">
+ <path d=" M 25.41275 14.22636 L -25.41275 14.22636 C -27.62192 14.22636 -29.41275 12.43553 -29.41275 10.22636 L -29.41275 -10.22636 C -29.41275 -12.43553 -27.62192 -14.22636 -25.41275 -14.22636 L 25.41275 -14.22636 C 27.62192 -14.22636 29.41275 -12.43553 29.41275 -10.22636 L 29.41275 10.22636 C 29.41275 12.43553 27.62192 14.22636 25.41275 14.22636 Z M -29.41275 -14.22636  " fill="none"/>
+ </g>
+ <g transform="translate(-25.90001,-2.35289)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(25.90001,0)" text-anchor="middle"  font-size="10.53937"> 
+<g fill="#000">
+ <g stroke="none"> susceptible</g> </g>
+ </text> 
+</g>
+ </g>
+ </g>
+ <g stroke="#000">
+ <g stroke="#000">
+ <path d=" M 71.1319 -14.22636 h 85.35825 v 28.45273 h -85.35825 Z  " fill="none"/>
+ </g>
+ <g transform="translate(94.5453,-2.35289)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(19.26572,0)" text-anchor="middle"  font-size="10.53937"> 
+<g fill="#000">
+ <g stroke="none"> exposed </g> </g>
+ </text> 
+</g>
+ </g>
+ </g>
+ <g stroke="#000">
+ <g stroke="#000">
+ <path d=" M 184.94292 -14.22636 h 85.35825 v 28.45273 h -85.35825 Z  " fill="none"/>
+ </g>
+ <g transform="translate(208.94131,-3.75462)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(18.68073,0)" text-anchor="middle"  font-size="10.53937"> 
+<g fill="#000">
+ <g stroke="none"> infected </g> </g>
+ </text> 
+</g>
+ </g>
+ </g>
+ <g stroke="#000">
+ <g stroke="#000">
+ <path d=" M 365.8858 14.22636 L 316.98032 14.22636 C 314.77115 14.22636 312.98032 12.43553 312.98032 10.22636 L 312.98032 -10.22636 C 312.98032 -12.43553 314.77115 -14.22636 316.98032 -14.22636 L 365.8858 -14.22636 C 368.09497 -14.22636 369.8858 -12.43553 369.8858 -10.22636 L 369.8858 10.22636 C 369.8858 12.43553 368.09497 14.22636 365.8858 14.22636 Z M 312.98032 -14.22636  " fill="none"/>
+ </g>
+ <g transform="translate(318.4733,-3.75462)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(22.95976,0)" text-anchor="middle"  font-size="10.53937"> 
+<g fill="#000">
+ <g stroke="none"> recovered </g> </g>
+ </text> 
+</g>
+ </g>
+ </g>
+ <path d=" M 29.61275 0.0 L 68.93193 0.0  " fill="none"/>
+ <g transform="translate(68.93193,0.0)">
+ <path d=" M 1.99997 0.0 L -1.19998 1.59998 L 0.0 0.0 L -1.19998 -1.59998  " stroke="none"/>
+  </g>
+ <path d=" M 156.69014 0.0 L 182.74295 0.0  " fill="none"/>
+ <g transform="translate(182.74295,0.0)">
+ <path d=" M 1.99997 0.0 L -1.19998 1.59998 L 0.0 0.0 L -1.19998 -1.59998  " stroke="none"/>
+  </g>
+ <path d=" M 270.50116 0.0 L 310.78035 0.0  " fill="none"/>
+ <g transform="translate(310.78035,0.0)">
+ <path d=" M 1.99997 0.0 L -1.19998 1.59998 L 0.0 0.0 L -1.19998 -1.59998  " stroke="none"/>
+  </g>
+ </g>
+ </g>
+ 
+                                                                                                                                                        </g> 
+</svg> 

@@ -1,0 +1,264 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX spellcheck = en_US
+
+\documentclass[a4paper]{ltxdoc}
+\usepackage{amsmath}
+\usepackage[UTF8]{ctex}
+\usepackage{unicode-math}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{listings}
+\usepackage[perpage]{footmisc}
+\usepackage{hypdoc}
+\usepackage{geometry}
+\usepackage{endnotes}
+% \usepackage[multiple]{endnotes}
+\usepackage{multicol}
+\usepackage{blindtext}
+\geometry{a4paper, scale=0.85}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\title{实验报告\\切变模量的测量}
+\author{少年班学院\\马天开 PB21000030（1号）}
+\date{\today}
+
+
+\begin{document}
+\begin{multicols}{2}
+  \maketitle
+  \section{实验目的}
+  利用扭摆测量金属丝的切变模量，根据公式进行简单的实验设计和实验基本方法训练，学会实验仪器的使用、测量方法和应用误差均分原理；分析误差的来源，提出修正和估算的方法。
+  \section{实验器材}
+  扭摆、金属悬盘、金属环、待测金属丝、螺旋测微仪、游标卡尺、米尺、秒表
+
+  螺旋测微仪精度$\Delta = 0.01 mm$，游标卡尺精度$\Delta = 0.02mm$，米尺精度$0.1cm$，秒表精度$0.01s$（人的反应时间：$0.2s$）
+  \section{实验原理}
+  待测金属丝是一根均匀细长的钢丝，近似为一个半径为$R$，长度为$L$的圆柱体，按照剪切胡克定律：
+  \begin{equation}
+    \tau = G \gamma
+  \end{equation}
+  其中，$\gamma$为切应变，$\tau$为切应力，$G$为材料的切变模量。
+
+  切应变又可以表示为：
+  \begin{equation}
+    \gamma = R \dfrac{d\varphi}{dl}
+  \end{equation}
+
+  在钢丝内部$r=\rho$的位置，切应变为：
+  \begin{equation}
+    \gamma_\rho = \rho \dfrac{d\varphi}{dl}
+  \end{equation}
+
+  在此位置会产生切应力，大小为
+  \begin{equation}
+    \tau_\rho = G \gamma_\rho = G\rho \dfrac{d\varphi}{dl}
+  \end{equation}
+
+  产生的回复力矩为：
+  \begin{equation}
+    \tau \cdot \rho \cdot 2 \pi \rho \cdot d\rho = 2\pi G \rho ^3\dfrac{d\varphi}{dl}\cdot \rho
+  \end{equation}
+
+  对$\rho$积分，得到恢复力矩：
+  \begin{equation}
+    \int _0 ^R 2\pi G \rho^3 d\rho \cdot \dfrac{d\varphi}{dl} = \dfrac{\pi}{2} G R ^4 \dfrac{d\varphi}{dl}
+  \end{equation}
+
+  因此，总恢复力矩（$\varphi = L \dfrac{d\varphi}{L}$）：
+  \begin{equation}
+    M = \dfrac{\pi}{2} G R ^4 \dfrac{d\varphi}{dl} = \dfrac{\pi}{2} G R ^4 \dfrac{\varphi} {L}
+  \end{equation}
+
+  \begin{equation}
+    \therefore\ G = \dfrac{2ML}{\pi R^4 \varphi}
+  \end{equation}
+
+  根据转动定律：
+  \begin{equation}
+    M = I_0 \dfrac{d^2\varphi}{dt^2}
+  \end{equation}
+
+  又有$M = D\varphi$，因此：
+  \begin{equation}
+    \dfrac{d^2\varphi}{dt^2} + \dfrac{D}{I_0}\varphi = 0
+  \end{equation}
+
+  上述方程是一个简谐运动方程，周期为：
+  \begin{equation}
+    T_0 = 2\pi \sqrt{\dfrac{I_0}{D}}
+  \end{equation}
+
+  注意到单独计算$I_0$有困难，因此在圆盘上增加一个金属环（金属环转动惯量记为$I_1=\dfrac 1 2 m (r_1^2+r_2^2)$可以计算），测新周期为：
+  \begin{equation}
+    T_1 = 2\pi \sqrt{\dfrac{I_0+I_1}{D}}
+  \end{equation}
+
+  由此，可以计算：
+  \begin{equation}
+    G = \dfrac{4\pi Lm(r_1^2+r_2^2)}{R^4(T_1^2-T_0^2)}
+  \end{equation}
+  \section{实验方法}
+  \begin{itemize}
+    \item 调整装置，使得钢丝与圆盘相垂直，且钢丝保持悬置。
+    \item 用螺旋测微器测钢丝直径（上、中、下各三组），用游标卡尺分别测量圆环的内外径（各三组）、用米尺测量钢丝的有效长度（上夹具最下端到下夹具最上端，测三组）。
+    \item 考虑到人读秒时的反应时间，估算合适的测量周期数（40）。
+    \item 计算切变模量$G$和扭转模量$D$，分析误差。
+  \end{itemize}
+  \section{实验数据}
+
+  \smallskip
+  螺旋测微器$0$示数：$-0.005mm$
+  \smallskip
+
+  \begin{tabular}{|c|c|c|c|}
+    \hline \textit{$d_1$} & 0.776 & 0.778 & 0.778 \\
+    \hline \textit{$d_2$} & 0.773 & 0.777 & 0.776 \\
+    \hline \textit{$d_3$} & 0.781 & 0.782 & 0.784 \\\hline
+  \end{tabular}
+
+  \smallskip
+  游标卡尺：
+  \smallskip
+
+  \begin{tabular}{|c|c|c|c|}
+    \hline $2r_1$ & 9.988 & 9.984 & 9.988 \\
+    \hline $2r_2$ & 7.948 & 7.932 & 7.958 \\\hline
+  \end{tabular}
+
+  \smallskip
+  米尺：
+  \smallskip
+
+  \begin{tabular}{|c|c|c|c|}
+    \hline $L$ & 44.32 & 44.38 & 44.39 \\\hline
+  \end{tabular}
+
+  \smallskip
+  秒表：
+  \smallskip
+
+  \begin{tabular}{|c|c|c|c|}
+    \hline $40T_0$ & 91.48  & 91.32  & 91.58  \\
+    \hline $40T_1$ & 142.47 & 142.80 & 142.00 \\\hline
+  \end{tabular}
+
+  \smallskip
+  天平：
+  \smallskip
+
+  $m = 512.0 g$
+
+  \section{数据处理}
+
+  \begin{equation}
+    \left\{
+    \begin{aligned}
+      \bar R = \dfrac 1 {18} (0.776 + 0.778 + 0.778 + \ldots ) & = 0.394  \\
+      2\bar r_1 = \dfrac{1}{3}(9.988 + 9.984 + 9.988)          & = 9.987  \\
+      2\bar r_2 = \dfrac{1}{3}(7.948 + 7.932 + 7.958)          & = 7.946  \\
+      \bar L = \dfrac{1}{3}(44.32 + 44.38 + 44.39)             & = 44.36  \\
+      \bar T_0 = \dfrac{1}{120}(91.48 + 91.32 + 91.58)         & = 2.2865 \\
+      \bar T_1 = \dfrac{1}{120}(142.47 + 142.80 + 142.00)      & = 3.561  \\
+      m                                                        & = 512.0
+    \end{aligned}
+    \right.
+  \end{equation}
+
+  得到：$\bar G = \dfrac{4\pi Lm(r_1^2+r_2^2)}{R^4(T_1^2-T_0^2)} = 6.47 \times 10^{10}$
+
+  % 各值的不确定度分别为：
+
+  % \begin{equation}
+  %   \left\{
+  %   \begin{aligned}
+  %     \sigma_a{_{R}  } & = 0.00413 mm \\
+  %     \sigma_a{_{r_1}} & = 0.00117 cm \\
+  %     \sigma_a{_{r_2}} & = 0.00650 cm \\
+  %     \sigma_a{_{L}  } & = 0.0324 cm  \\
+  %     \sigma_a{_{T_0}} & = 0.00861 s  \\
+  %     \sigma_a{_{T_1}} & = 0.01007 s  \\
+  %   \end{aligned}
+  %   \right.
+  % \end{equation}
+
+  % 因此，$A$类不确定度分别计算为：
+
+  各值的$A$类不确定度分别计算为：
+
+  \begin{equation}
+    \left\{
+    \begin{aligned}
+      u_a{_{R}  } & = 0.000947 mm \\
+      u_a{_{r_1}} & = 0.000675 cm \\
+      u_a{_{r_2}} & = 0.00375 cm  \\
+      u_a{_{L}  } & = 0.0187 cm   \\
+      u_a{_{T_0}} & = 0.00501 s   \\
+      u_a{_{T_1}} & = 0.00581 s   \\
+    \end{aligned}
+    \right.
+    \label{A}
+  \end{equation}
+
+  按照测量仪器的不同，各值的$B$类不确定度分别为：
+
+  \begin{equation}
+    \left\{
+    \begin{aligned}
+      u_b{_{R}  } & = 0.00289 mm \\
+      u_b{_{r_1}} & = 0.00115 cm \\
+      u_b{_{r_2}} & = 0.00115 cm \\
+      u_b{_{L}  } & = 0.0577 cm  \\
+      u_b{_{T_0}} & = 0.00577 s  \\
+      u_b{_{T_1}} & = 0.00577 s  \\
+      u_b{_{m}  } & = 0.0577 g   \\
+    \end{aligned}
+    \right.
+    \label{B}
+  \end{equation}
+
+  综合~\ref{A}，~\ref{B}，可以计算展伸不确定度为（取$P=0.997$）：
+
+  \begin{equation}
+    \left\{
+    \begin{aligned}
+      U_{R}   & = 0.00304 mm \\
+      U_{r_1} & = 0.00133 cm \\
+      U_{r_2} & = 0.00392 cm \\
+      U_{L}   & = 0.0607 cm  \\
+      U_{T_0} & = 0.00764 s  \\
+      U_{T_1} & = 0.00819 s  \\
+      U_{m}   & = 0.0577 g   \\
+    \end{aligned}
+    \right.
+  \end{equation}
+
+  得到$G$的展伸不确定度为：
+
+  \begin{equation}
+    U_G/G = \sqrt{(U_L/L)^2 + 2 (U_{r_1}/r_1) ^2 +\ldots} = 0.00873
+  \end{equation}
+
+  \section{实验结论}
+
+  \subsection{结果}
+  \begin{equation}
+    \left\{
+    \begin{aligned}
+      G & = 6.47 \pm 0.06 \times 10^{10} \\
+      D & = 2.29 \pm 0.01 \times 10^{11} \\
+      P & = 0.997                        \\
+    \end{aligned}
+    \right.
+  \end{equation}
+
+  \subsection{思考题}
+  1. $\gamma = R \dfrac{\varphi}{L} = 1.392 \times 10 ^{-3} \lll 1$
+
+  2. 实验中主要提升精度的办法是测多个周期取平均值，进而降低了误差的主要来源——人的反应时间；在具体测量时，更要仔细观察托盘是否水平，在转动扭摆时注意不能产生水平方向的摆动，以免影响测量精度。
+\end{multicols}
+\end{document}
