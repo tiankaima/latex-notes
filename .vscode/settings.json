@@ -1,5 +1,23 @@
 {
-    "cSpell.words": [
-        "pdflatex"
-    ]
+    "grammarly.selectors": [
+        {
+            "language": "latex",
+            "scheme": "file",
+            "pattern": "6d4ea8/main.tex"
+        },
+        {
+            "language": "latex",
+            "scheme": "file"
+        }
+    ],
+    "files.exclude": {
+        "**/*.hd": true,
+        "**/*.synctex.gz": true,
+        "**/*.aux": true,
+        "**/*.bbl": true,
+        "**/*.blg": true,
+        "**/*.log": true,
+        "**/*.out": true,
+        "**/*.ent": true
+    }
 }
